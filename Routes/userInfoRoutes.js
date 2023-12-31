@@ -4,7 +4,7 @@ const validateUserFields = require("../middleware/validateUserFields");
 const requiredFields = require("../const/userInfoFields");
 const userInfoController = require("../controllers/userInfo.controllers");
 const verifyJWT = require("../middleware/verifyJWT");
-router.use(verifyJWT);
+
 router
    .route("/")
    .get(userInfoController.getAllInfo)

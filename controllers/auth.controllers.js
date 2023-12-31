@@ -5,9 +5,9 @@ const asyncHandler = require("express-async-handler");
 
 const login = asyncHandler(async (req, res) => {
    const { username, password } = req.body;
-   if (!username || !password) {
-      return res.status(400).json({ message: "All fields are requierd" });
-   }
+   // if (!username || !password) {
+   //    return res.status(400).json({ message: "All fields are requierd" });
+   // }
    const foundUser = await User.findOne({ username }).exec();
    if (!foundUser) {
       return res.status(400).json({ message: "Unauthorized" });
