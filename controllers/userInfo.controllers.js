@@ -43,6 +43,9 @@ const updateUserInfo = asyncHandler(async (req, res) => {
       experience,
       awards,
       roles,
+      aboutheading,
+      homeabout,
+      about,
    } = req.body;
    // confirm user exist
    const userInfo = await UserInfo.findById(id);
@@ -62,6 +65,9 @@ const updateUserInfo = asyncHandler(async (req, res) => {
    userInfo.experience = experience;
    userInfo.awards = awards;
    userInfo.roles = roles;
+   userInfo.aboutheading = aboutheading;
+   userInfo.homeabout = homeabout;
+   userInfo.about = about;
    const updatedInfo = await userInfo.save();
 
    res.json(`${updatedInfo.name} updated`);

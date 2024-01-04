@@ -10,8 +10,17 @@ const getAllProjects = asyncHandler(async (req, res) => {
 });
 
 const createProject = asyncHandler(async (req, res) => {
-   // const {title,description,imageUrl,tags,codeLink,projectLink} = req.body
-   const project = await Projects.create({ ...req.body });
+   const { title, description, imageUrl, tags, codeLink, projectLink } =
+      req.body;
+   console.log(req.body);
+   const project = await Projects.create({
+      title,
+      description,
+      imageUrl,
+      tags,
+      codeLink,
+      projectLink,
+   });
    if (project) {
       res.status(201).json({ message: `new project added` });
    } else [res.status(400).json({ message: "invalid data" })];
@@ -21,8 +30,9 @@ const updateProject = asyncHandler(async (req, res) => {
       req.body;
    const project = await Projects.findById(id);
    if (!project) {
-      res.status(400).json({ message: "project not exist" });
+      return res.status(400).json({ message: "project not exist" });
    }
+
    project.title = title;
    project.description = description;
    project.projectLink = projectLink;

@@ -50,6 +50,24 @@ const userInfoSchema = new mongoose.Schema({
          default: "Web Development",
       },
    ],
+   aboutheading: {
+      type: String,
+   },
+   homeabout: {
+      type: String,
+   },
+   about: {
+      type: String,
+   },
+   image1: {
+      type: String,
+   },
+   image2: {
+      type: String,
+   },
+   image3: {
+      type: String,
+   },
 });
 
 module.exports = mongoose.model("UserInfo", userInfoSchema);
